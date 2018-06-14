@@ -33,4 +33,14 @@ export class AppComponent {
       this._loadingBar.stop();
     }
   }
+
+  logout() {
+    localStorage.removeItem('jwtToken');
+  }
+
+  hasToken(){
+    return localStorage.getItem("jwtToken");
+  }
+
+
 }
