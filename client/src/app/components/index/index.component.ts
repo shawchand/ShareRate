@@ -26,4 +26,7 @@ export class IndexComponent implements OnInit {
       this.adunits = data;
     });
   }
+  hasToken(){
+    return localStorage.getItem("jwtToken");
+  }
 }

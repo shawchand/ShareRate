@@ -40,4 +40,8 @@ export class EditComponent implements OnInit {
       });
     });
   }
+
+  hasToken(){
+    return localStorage.getItem("jwtToken");
+  }
 }

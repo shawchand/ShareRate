@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 import { AdunitService } from '../../adunit.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import {HttpHeaders} from "@angular/common/http";
 
 @Component({
   selector: 'app-create',
@@ -25,8 +26,15 @@ export class CreateComponent implements OnInit {
   addAdUnit(unit_name, unit_price) {
     this.adunitservice.addAdUnit(unit_name);
     this.router.navigate(['index']);
-}
+  }
   ngOnInit() {
   }
 
+  hasToken(){
+    return localStorage.getItem("jwtToken");
+  }
+  logout() {
+    localStorage.removeItem('jwtToken');
+    this.router.navigate(['login']);
+  }
 }
